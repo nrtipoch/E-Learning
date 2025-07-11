@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My PWA App</title>
+    <meta name="description" content="Progressive Web App ที่สามารถติดตั้งบนมือถือได้">
+    <meta name="theme-color" content="#4CAF50">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- iOS Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="My PWA App">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16x16.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📱 My PWA App</h1>
+            <p>Progressive Web App ที่ทำงานเหมือน Native App</p>
+        </div>
+        
+        <div class="card">
+            <h2>🚀 ฟีเจอร์หลัก</h2>
+            <div class="feature-grid">
+                <div class="feature-item" onclick="showDataForm()">
+                    <span class="feature-icon">📊</span>
+                    <div class="feature-title">จัดการข้อมูล</div>
+                </div>
+                <div class="feature-item" onclick="showCalculator()">
+                    <span class="feature-icon">🧮</span>
+                    <div class="feature-title">เครื่องคิดเลข</div>
+                </div>
+                <div class="feature-item" onclick="showSettings()">
+                    <span class="feature-icon">⚙️</span>
+                    <div class="feature-title">ตั้งค่า</div>
+                </div>
+                <div class="feature-item" onclick="showAbout()">
+                    <span class="feature-icon">ℹ️</span>
+                    <div class="feature-title">เกี่ยวกับ</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" id="content">
+            <h3>ยินดีต้อนรับ!</h3>
+            <p>เลือกฟีเจอร์ที่ต้องการใช้งานจากด้านบน</p>
+            <p>แอปนี้สามารถติดตั้งบนมือถือของคุณได้ เพียงแตะปุ่ม "เพิ่มไปยังหน้าหลัก" ที่จะปรากฏขึ้น</p>
+            
+            <div class="quick-stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="dataCount">0</div>
+                    <div class="stat-label">ข้อมูลที่บันทึก</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="calcCount">0</div>
+                    <div class="stat-label">การคำนวณ</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="onlineStatus">🌐</div>
+                    <div class="stat-label">สถานะ</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>PWA App v1.0 - ทำงานออฟไลน์ได้</p>
+            <p>อัปเดตล่าสุด: <span id="lastUpdate"></span></p>
+        </div>
+    </div>
+    
+    <div class="install-prompt" id="installPrompt">
+        <div class="install-content">
+            <h3>📱 ติดตั้งแอป</h3>
+            <p>ติดตั้งแอปนี้บนมือถือเพื่อประสบการณ์ที่ดีขึ้น</p>
+            <div class="install-buttons">
+                <button class="btn btn-primary" onclick="installApp()">ติดตั้งเลย</button>
+                <button class="btn btn-secondary" onclick="dismissInstall()">ไม่ใช่ตอนนี้</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification"></div>
+    
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-spinner"></div>
+        <p>กำลังโหลด...</p>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+    <script src="js/features.js"></script>
+    <script src="js/storage.js"></script>
+</body>
+</html>
